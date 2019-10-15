@@ -1,16 +1,6 @@
 # do mount_all early can imporve boot time when FBE
 # is enabled
 
-
 on fs
     mount_all /vendor/etc/fstab.${ro.hardware}
 #    mount_all /vendor/etc/fstab.${ro.hardware} --early
-
-on late-fs
-    # Start services for bootanim
-    start hwcomposer-2-1
-    start configstore-hal-1-0
-    start gralloc-2-0
-    start surfaceflinger
-    start bootanim
-	

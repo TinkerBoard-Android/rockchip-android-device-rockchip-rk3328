@@ -57,9 +57,6 @@ BOARD_PREBUILT_DTBIMAGE_DIR :=
 
 # Disable bluetooth because of continuous driver crashes
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += config.disable_bluetooth=true
-BOARD_HAVE_BLUETOOTH := false
-
-BOARD_RECORD_COMMIT_ID := false
 
 # Google TV Service and frp overlay
 BUILD_WITH_GTVS := false

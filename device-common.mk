@@ -25,12 +25,14 @@ PRODUCT_PACKAGES += \
     libcrypto_vendor.vendor
 
 PRODUCT_PACKAGES += \
+    displayd \
     libion \
     memtrack.$(TARGET_BOARD_PLATFORM)
 
 # Default integrate MediaCenter
 PRODUCT_PACKAGES += \
-    MediaCenter
+    MediaCenter \
+	RKTvLauncher
 
 #enable this for support f2fs with data partion
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
@@ -42,17 +44,21 @@ ifeq ($(HOST_OS),linux)
 endif
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init.recovery.rk30board.rc:recovery/root/init.recovery.rk30board.rc \
+    vendor/rockchip/common/bin/$(TARGET_ARCH)/busybox:recovery/root/sbin/busybox
+
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk3328.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3328.rc \
     $(LOCAL_PATH)/init.rk30board.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk30board.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
-    device/rockchip/rk3328/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml \
+    device/rockchip/rk3328/package_performance.xml:$(TARGET_COPY_OUT_ODM)/etc/package_performance.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 # copy input keylayout and device config
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT), box)
 PRODUCT_COPY_FILES += \
-    device/rockchip/rk3328/rk3328_box/ff1b0030_pwm.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ff1b0030_pwm.kl 
+    device/rockchip/rk3328/rk3328_box/ff1b0030_pwm.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ff1b0030_pwm.kl
 
 else
 PRODUCT_COPY_FILES += \

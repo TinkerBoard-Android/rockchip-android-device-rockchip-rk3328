@@ -15,8 +15,7 @@
 #
 include device/rockchip/rk3328/BoardConfig.mk
 
-# Use the non-open-source parts, if they're present
-
-
-# Android Q use odm instead of oem, but for upgrading to Q, partation list cant be changed, odm will mount at /dev/block/by-name/oem
-#BOARD_ODMIMAGE_PARTITION_SIZE := $(shell python device/rockchip/common/get_partition_size.py device/rockchip/rk3328/rk3328_atv/parameter.txt oem)
+PRODUCT_UBOOT_CONFIG ?= rk3328
+PRODUCT_KERNEL_ARCH ?= arm64
+PRODUCT_KERNEL_DTS ?= rk3328-evb-android-avb
+PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig
