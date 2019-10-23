@@ -33,7 +33,7 @@ PRODUCT_BOOT_DEVICE := ff520000.dwmmc
 
 include device/rockchip/common/build/rockchip/DynamicPartitions.mk
 include device/rockchip/common/BoardConfig.mk
-include device/rockchip/rk3328/rk3328_atv/BoardConfig.mk
+include device/rockchip/rk3328/rk3328_box/BoardConfig.mk
 $(call inherit-product, device/rockchip/rk3328/device-common.mk)
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/rockchip/common/device.mk)
