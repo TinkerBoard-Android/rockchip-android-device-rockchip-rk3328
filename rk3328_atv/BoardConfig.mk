@@ -18,4 +18,4 @@ include device/rockchip/rk3328/BoardConfig.mk
 PRODUCT_UBOOT_CONFIG ?= rk3328
 PRODUCT_KERNEL_ARCH ?= arm64
 PRODUCT_KERNEL_DTS ?= rk3328-evb-android-avb
-PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig
+PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig android-10.config
