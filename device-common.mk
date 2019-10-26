@@ -16,6 +16,8 @@
 
 #overlay config
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT), box)
+PRODUCT_PACKAGES += \
+    RKTvLauncher
 PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk3328/rk3328_box/overlay
 else
 PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk3328/overlay
@@ -31,8 +33,7 @@ PRODUCT_PACKAGES += \
 
 # Default integrate MediaCenter
 PRODUCT_PACKAGES += \
-    MediaCenter \
-	RKTvLauncher
+    MediaCenter
 
 #enable this for support f2fs with data partion
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs

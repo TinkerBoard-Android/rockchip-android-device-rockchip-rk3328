@@ -59,7 +59,7 @@ BOARD_PREBUILT_DTBIMAGE_DIR :=
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += config.disable_bluetooth=true
 
 # Google TV Service and frp overlay
-BUILD_WITH_GTVS := false
+PRODUCT_USE_PREBUILT_GTVS := yes
 BUILD_WITH_GOOGLE_FRP := false
 
 # Get the long list of APNs
