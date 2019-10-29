@@ -1,5 +1,5 @@
 on early-fs
-    setprop sys.usb.controller "ff300000.usb"
+    setprop sys.usb.controller "ff580000.usb"
     setprop sys.usb.configfs 1
 
 on fs && property:sys.usb.configfs=1
