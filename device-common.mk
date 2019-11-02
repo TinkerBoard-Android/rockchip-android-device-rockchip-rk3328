@@ -50,7 +50,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk3328.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3328.rc \
-    $(LOCAL_PATH)/init.rk30board.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk30board.usb.rc \
+    $(LOCAL_PATH)/init.rk3328.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3328.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
     device/rockchip/rk3328/package_performance.xml:$(TARGET_COPY_OUT_ODM)/etc/package_performance.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
@@ -112,7 +112,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.vendor.nrdp.modelgroup=NEXUSPLAYERFUGU \
     vendor.hwc.device.primary=HDMI-A,TV \
-    ro.vendor.sdkversion=RK3328_ANDROID9.0_BOX_V1.1
+    ro.vendor.sdkversion=RK3328_ANDROID10.0_BOX_V1.0
 
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT), box)
 PRODUCT_PROPERTY_OVERRIDES += \
