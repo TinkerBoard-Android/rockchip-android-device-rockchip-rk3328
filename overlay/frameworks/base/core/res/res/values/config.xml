@@ -70,6 +70,5 @@
         <item>screenshot</item>
     </string-array>
     <bool name="config_supportsSplitScreenMultiWindow">false</bool>
-    <bool name="config_supportAutoRotation">false</bool>
     <bool name="config_enableAutoPowerModes">false</bool>
 </resources>

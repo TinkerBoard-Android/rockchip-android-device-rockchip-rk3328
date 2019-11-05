@@ -69,6 +69,6 @@
         <item>bugreport</item>
         <item>screenshot</item>
     </string-array>
-    <bool name="config_supportAutoRotation">false</bool>
+    <bool name="config_supportAutoRotation">true</bool>
     <bool name="config_enableAutoPowerModes">false</bool>
 </resources>
