@@ -114,15 +114,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.hwc.device.primary=HDMI-A,TV \
     ro.vendor.sdkversion=RK3328_ANDROID10.0_BOX_V1.0
 
-ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT), box)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=160
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=213 \
-    persist.sys.usb.config=mtp
-endif
-
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.hwui.drop_shadow_cache_size=4.0 \

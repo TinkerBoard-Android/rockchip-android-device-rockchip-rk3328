@@ -15,7 +15,6 @@
 #
 
 TARGET_BOARD_PLATFORM_PRODUCT := box
-TARGET_BASE_PARAMETER_IMAGE := device/rockchip/common/baseparameter/baseparameter_fb720.img
 
 # First lunching is Q, api_level is 29
 PRODUCT_SHIPPING_API_LEVEL := 29
@@ -43,8 +42,8 @@ PRODUCT_CHARACTERISTICS := tv
 
 PRODUCT_NAME := rk3328_box
 PRODUCT_DEVICE := rk3328_box
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := rk3328
+PRODUCT_BRAND := Rockchip
+PRODUCT_MODEL := rk3328_box
 PRODUCT_MANUFACTURER := Rockchip
 
 #BUILD_WITH_GO_OPT := true
@@ -73,3 +72,8 @@ PRODUCT_AAPT_PREF_CONFIG := tvdpi
 # TV Input HAL
 PRODUCT_PACKAGES += \
     android.hardware.tv.input@1.0-impl
+
+# Display
+TARGET_BASE_PARAMETER_IMAGE := device/rockchip/common/baseparameter/baseparameter_fb720.img
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=160
