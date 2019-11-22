@@ -98,7 +98,7 @@
             <name>IHealth</name>
             <instance>default</instance>
         </interface>
-    </hal>
+    </hal>    
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
@@ -181,6 +181,15 @@
         <version>1.0</version>
         <interface>
             <name>IRkOutputManager</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>rockchip.hardware.rkaudiosetting</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IRkAudioSetting</name>
             <instance>default</instance>
         </interface>
     </hal>
