@@ -31,31 +31,6 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
 
-# support devices to install magisk through include ramdisk in boot.img
-BOOTIMG_SUPPORT_MAGISK := false
-
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_AVB_ENABLE := false
-ifneq ($(filter true, $(BOARD_AVB_ENABLE)), )
-BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.baseband=N/A androidboot.selinux=permissive androidboot.wificountrycode=US androidboot.veritymode=enforcing androidboot.hardware=rk30board androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init rootwait ro init=/init
-init=/init rootwait ro init=/init
-PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
-else
-#Config the cmdline for boot or recpvery
-BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.baseband=N/A androidboot.selinux=permissive androidboot.wificountrycode=US androidboot.veritymode=enforcing androidboot.hardware=rk30board androidboot.verifiedbootstate=orange androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init rootwait ro init=/init root=PARTUUID=af01642c-9b84-11e8-9b2a-234eb5e198a0
-endif
-
-ifneq ($(filter true, $(BOOTIMG_SUPPORT_MAGISK)), )
-BOARD_KERNEL_CMDLINE += skip_initramfs
-endif
-
-BOARD_KERNEL_CMDLINE += loop.max_part=7
-
-BOARD_KERNEL_CMDLINE += androidboot.boot_devices=ff520000.dwmmc
-
-BOARD_KERNEL_CMDLINE += earlyprintk=uart8250-32bit,0xff130000 swiotlb=1 kpti=0 coherent_pool=1m
-
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
 BUILD_EMULATOR := false
 TARGET_BOARD_PLATFORM := rk3328

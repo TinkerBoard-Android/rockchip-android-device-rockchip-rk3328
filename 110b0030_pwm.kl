@@ -6,6 +6,8 @@ key 116   POWER
 key 158   BACK
 key 139   MENU
 key 217   SEARCH
+key 141   ASSIST
+key 164   MEDIA_PLAY_PAUSE
 key 232   DPAD_CENTER
 key 108   DPAD_DOWN
 key 103   DPAD_UP
@@ -27,13 +29,3 @@ key 8     7
 key 9     8
 key 10    9
 key 11    0
-#key 400   TV_MEDIA_MULT_BACKWARD
-#key 401   TV_MEDIA_MULT_FORWARD
-#key 402   TV_MEDIA_PLAY_PAUSE
-#key 64    TV_MEDIA_PLAY
-#key 65    TV_MEDIA_PAUSE
-#key 66    TV_MEDIA_STOP
-#key 67    TV_MEDIA_REWIND
-#key 68    TV_MEDIA_FAST_FORWARD
-#key 87    TV_MEDIA_PREVIOUS
-#key 88    TV_MEDIA_NEXT
