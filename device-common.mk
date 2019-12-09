@@ -139,7 +139,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
 
-# APEX disabled for ATV Q
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.apex.updatable=false \
-TARGET_FLATTEN_APEX := true
