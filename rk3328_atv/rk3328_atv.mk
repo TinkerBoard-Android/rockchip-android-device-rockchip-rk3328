@@ -21,6 +21,7 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 PRODUCT_FSTAB_TEMPLATE := $(LOCAL_PATH)/fstab.in
 PRODUCT_DTBO_TEMPLATE := $(LOCAL_PATH)/dt-overlay.in
 PRODUCT_BOOT_DEVICE := ff520000.dwmmc
+BOARD_SELINUX_ENFORCING := false
 
 #
 # This file is the build configuration for an aosp Android
