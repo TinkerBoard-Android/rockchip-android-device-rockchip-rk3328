@@ -79,3 +79,15 @@ PRODUCT_PACKAGES += \
 TARGET_BASE_PARAMETER_IMAGE := device/rockchip/common/baseparameter/baseparameter_fb720.img
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=160
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote32
+
+# Enable DM file preopting to reduce first boot time
+PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
+
+# Save space for Go-device
+DONT_UNCOMPRESS_PRIV_APPS_DEXS := true
+
+# Reduces GC frequency of foreground apps by 50%
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.foreground-heap-growth-multiplier=2.0

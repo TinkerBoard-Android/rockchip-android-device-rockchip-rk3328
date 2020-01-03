@@ -15,6 +15,11 @@
 #
 -include vendor/rockchip/rk3328/BoardConfigVendor.mk
 
+PRODUCT_UBOOT_CONFIG ?= rk3328
+PRODUCT_KERNEL_ARCH ?= arm64
+PRODUCT_KERNEL_DTS ?= rk3328-box-liantong-avb
+PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig android-10-go.config
+
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := armeabi-v7a
@@ -43,3 +48,6 @@ ifneq (,$(filter ro.zygote=zygote64, $(PRODUCT_DEFAULT_PROPERTY_OVERRIDES)))
 TARGET_PREFER_32_BIT_APPS :=
 TARGET_SUPPORTS_64_BIT_APPS := true
 endif
+
+MALLOC_SVELTE := true
+BOARD_TV_LOW_MEMOPT := true

@@ -12,7 +12,7 @@ ${_block_prefix}product /product  ext4 ro,barrier=1 ${_flags},first_stage_mount
 
 /devices/platform/*usb*   auto vfat defaults      voldmanaged=usb:auto
 
-/dev/block/zram0                                none                swap      defaults                                              zramsize=50%
+/dev/block/zram0                                none                swap      defaults                                              zramsize=75%
 # For sdmmc
 /devices/platform/ff5f0000.dwmmc/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/platform/ff500000.dwmmc/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
