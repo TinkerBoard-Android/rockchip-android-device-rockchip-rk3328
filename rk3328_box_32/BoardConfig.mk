@@ -15,10 +15,10 @@
 #
 -include vendor/rockchip/rk3328/BoardConfigVendor.mk
 
-PRODUCT_UBOOT_CONFIG ?= rk3328
-PRODUCT_KERNEL_ARCH ?= arm64
-PRODUCT_KERNEL_DTS ?= rk3328-box-liantong-avb
-PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig android-10-go.config
+PRODUCT_UBOOT_CONFIG := rk3328
+PRODUCT_KERNEL_ARCH := arm64
+PRODUCT_KERNEL_DTS := rk3328-box-liantong-avb
+PRODUCT_KERNEL_CONFIG := rockchip_defconfig android-10-go.config
 
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv8-a
