@@ -19,6 +19,8 @@ ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT), box)
 PRODUCT_PACKAGES += \
     RKTvLauncher
 PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk3328/rk3328_box/overlay
+else ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT), atv)
+	PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk3328/rk3328_atv/overlay
 else
 PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk3328/overlay
 endif
@@ -86,7 +88,7 @@ PRODUCT_COPY_FILES += \
 endif
 
 #tv_core_hardware_3328
-ifeq ($(strip $(TARGET_PRODUCT)),rk3328)
+ifeq ($(strip $(TARGET_PRODUCT)),rk3328_atv)
 PRODUCT_COPY_FILES += \
     device/rockchip/rk3328/permissions/tv_core_hardware_3328.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_core_hardware_3328.xml \
     frameworks/native/data/etc/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.gamepad.xml
