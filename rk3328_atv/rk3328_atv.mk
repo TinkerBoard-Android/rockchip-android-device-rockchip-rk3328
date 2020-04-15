@@ -50,8 +50,8 @@ PRODUCT_MANUFACTURER := Rockchip
 #BUILD_WITH_GO_OPT := true
 
 # No need to place dtb into boot.img for the device upgrading to Q.
-BOARD_INCLUDE_DTB_IN_BOOTIMG :=
-BOARD_PREBUILT_DTBIMAGE_DIR :=
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm64/boot/dts/rockchip
 
 #Need to build system as root for the device upgrading to Q.
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
