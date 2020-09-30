@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+DEVICE_MANIFEST_FILE := device/rockchip/rk3328/manifest.xml
+
 #overlay config
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT), box)
 PRODUCT_PACKAGES += \
@@ -56,22 +58,37 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
     device/rockchip/rk3328/package_performance.xml:$(TARGET_COPY_OUT_ODM)/etc/package_performance.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+   $(TARGET_DEVICE_DIR)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 # copy input keylayout and device config
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT), box)
 PRODUCT_COPY_FILES += \
-    device/rockchip/rk3328/rk3328_box/ff1b0030_pwm.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ff1b0030_pwm.kl
+    device/rockchip/rk3328/remote_config/ff1b0030_pwm.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ff1b0030_pwm.kl
 
 else
 PRODUCT_COPY_FILES += \
-    device/rockchip/rk3328/110b0030_pwm.kl:system/usr/keylayout/110b0030_pwm.kl \
-    device/rockchip/rk3328/ff1b0030_pwm.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ff1b0030_pwm.kl \
-    device/rockchip/rk3328/ff1b0030_pwm.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/ff1b0030_pwm.idc \
-    device/rockchip/rk3328/HiRemote.kl:system/usr/keylayout/HiRemote.kl \
-    device/rockchip/rk3328/HiRemote.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/HiRemote.kl \
-    device/rockchip/rk3328/HiRemote.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/HiRemote.idc \
-    device/rockchip/rk3328/virtual-remote.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/virtual-remote.idc
+    device/rockchip/rk3328/remote_config/110b0030_pwm.kl:system/usr/keylayout/110b0030_pwm.kl \
+    device/rockchip/rk3328/remote_config/ff1b0030_pwm.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ff1b0030_pwm.kl \
+    device/rockchip/rk3328/remote_config/ff1b0030_pwm.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/ff1b0030_pwm.idc \
+    device/rockchip/rk3328/remote_config/HiRemote.kl:system/usr/keylayout/HiRemote.kl \
+    device/rockchip/rk3328/remote_config/HiRemote.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/HiRemote.kl \
+    device/rockchip/rk3328/remote_config/HiRemote.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/HiRemote.idc \
+    device/rockchip/rk3328/remote_config/virtual-remote.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/virtual-remote.idc
+endif
+
+
+#
+## setup boot-shutdown animation configs.
+#
+HAVE_BOOT_ANIMATION := $(shell test -f $(TARGET_DEVICE_DIR)/bootanimation.zip && echo true)
+HAVE_SHUTDOWN_ANIMATION := $(shell test -f $(TARGET_DEVICE_DIR)/shutdownanimation.zip && echo true)
+
+ifeq ($(HAVE_BOOT_ANIMATION), true)
+PRODUCT_COPY_FILES += $(TARGET_DEVICE_DIR)/bootanimation.zip:$(TARGET_COPY_OUT_ODM)/media/bootanimation.zip
+endif
+
+ifeq ($(HAVE_SHUTDOWN_ANIMATION), true)
+PRODUCT_COPY_FILES += $(TARGET_DEVICE_DIR)/shutdownanimation.zip:$(TARGET_COPY_OUT_ODM)/media/shutdownanimation.zip
 endif
 
 # setup dalvik vm configs.
@@ -114,7 +131,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.vendor.nrdp.modelgroup=NEXUSPLAYERFUGU \
     vendor.hwc.device.primary=HDMI-A,TV \
-    ro.vendor.sdkversion=RK3328_ANDROID10.0_BOX_V1.0.1
+    ro.vendor.sdkversion=RK3328_ANDROID11.0_BOX_V1.0.0
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \

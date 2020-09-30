@@ -15,7 +15,6 @@
 #
 
 # Use the non-open-source parts, if they're present
--include vendor/rockchip/rk3328/BoardConfigVendor.mk
 
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -29,8 +28,18 @@ TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
-TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
 
+BOARD_AVB_ENABLE := false
+
+CURRENT_SDK_VERSION := RK3328_ANDROID11.0_BOX_V1.0
+
+BOARD_WITH_SPECIAL_PARTITIONS := baseparameter:1M,logo:16M
+
+# Enable Dex compile opt as default
+WITH_DEXPREOPT := true
+
+TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
+BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm64/boot/dts/rockchip
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
 BUILD_EMULATOR := false
 TARGET_BOARD_PLATFORM := rk3328
@@ -55,7 +64,7 @@ endif
 ENABLE_CPUSETS := true
 
 BOARD_CAMERA_SUPPORT := true
-BOARD_CAMERA_SUPPORT_EXT := true
+BOARD_CAMERA_SUPPORT_EXT := false
 BOARD_NFC_SUPPORT := false
 BOARD_HAS_GPS := false
 
@@ -85,10 +94,10 @@ BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 
 #for microsoft drm
 BUILD_WITH_MICROSOFT_PLAYREADY :=true
-DEVICE_MANIFEST_FILE := $(TARGET_DEVICE_DIR)/manifest.xml
 
-# copy mount rc file for FDE
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.mount_all.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mount_all.rc
+# Config GO Optimization
+#BUILD_WITH_GO_OPT := true
+ALLOW_MISSING_DEPENDENCIES=true
 
 # enable SVELTE malloc
 #MALLOC_SVELTE := true

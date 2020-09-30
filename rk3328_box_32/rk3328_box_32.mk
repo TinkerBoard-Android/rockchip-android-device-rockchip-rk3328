@@ -16,9 +16,8 @@
 
 TARGET_BOARD_PLATFORM_PRODUCT := box
 
-# First lunching is Q, api_level is 29
-PRODUCT_SHIPPING_API_LEVEL := 29
-PRODUCT_FSTAB_TEMPLATE := $(LOCAL_PATH)/fstab.in
+# First lunching is R, api_level is 30
+PRODUCT_SHIPPING_API_LEVEL := 30
 PRODUCT_DTBO_TEMPLATE := $(LOCAL_PATH)/dt-overlay.in
 PRODUCT_BOOT_DEVICE := ff520000.dwmmc
 BOARD_SELINUX_ENFORCING := false
@@ -39,6 +38,7 @@ $(call inherit-product, device/rockchip/rk3328/device-common.mk)
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/rockchip/common/device.mk)
 
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/../overlay
 #TODO TV?
 PRODUCT_CHARACTERISTICS := tv
 
@@ -48,17 +48,15 @@ PRODUCT_BRAND := Rockchip
 PRODUCT_MODEL := rk3328_box
 PRODUCT_MANUFACTURER := Rockchip
 
-#BUILD_WITH_GO_OPT := true
-
-# No need to place dtb into boot.img for the device upgrading to Q.
-BOARD_INCLUDE_DTB_IN_BOOTIMG :=
-BOARD_PREBUILT_DTBIMAGE_DIR :=
 
 #Need to build system as root for the device upgrading to Q.
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
 # Disable bluetooth because of continuous driver crashes
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += config.disable_bluetooth=true
+
+# tmp compile needed
+BOARD_WITH_RKTOOLBOX := false
 
 # Google TV Service and frp overlay
 PRODUCT_USE_PREBUILT_GTVS := no
