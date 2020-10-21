@@ -204,6 +204,8 @@ cp $IMAGE_PATH/* $STUB_PATH/IMAGES/
 
 .repo/repo/repo forall  -c "$PROJECT_TOP/device/rockchip/common/gen_patches_body.sh"
 
+.repo/repo/repo manifest -r -o $STUB_PATH/manifest_$DATE.xml
+
 mkdir -p $STUB_PATCH_PATH/kernel
 cp kernel/.config $STUB_PATCH_PATH/kernel
 cp kernel/vmlinux $STUB_PATCH_PATH/kernel
