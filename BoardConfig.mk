@@ -64,7 +64,7 @@ endif
 ENABLE_CPUSETS := true
 
 BOARD_CAMERA_SUPPORT := true
-BOARD_CAMERA_SUPPORT_EXT := false
+BOARD_CAMERA_SUPPORT_EXT := true
 BOARD_NFC_SUPPORT := false
 BOARD_HAS_GPS := false
 
@@ -105,3 +105,10 @@ ALLOW_MISSING_DEPENDENCIES=true
 #Config omx to support codec type.
 BOARD_SUPPORT_VP9 := true
 BOARD_SUPPORT_VP6 := false
+
+# memtrack support
+BOARD_MEMTRACK_SUPPORT := true
+
+#only box and atv using our audio policy(write by rockchip)
+USE_CUSTOM_AUDIO_POLICY := 1
+

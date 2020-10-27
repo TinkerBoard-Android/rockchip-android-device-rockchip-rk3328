@@ -42,6 +42,12 @@ PRODUCT_PACKAGES += \
 #enable this for support f2fs with data partion
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
+#box fstab in template
+PRODUCT_FSTAB_TEMPLATE := device/rockchip/rk3328/fstab.in
+
+#sdmmc device config
+PRODUCT_SDMMC_DEVICE := ff500000.dwmmc
+
 # This ensures the needed build tools are available.
 # TODO: make non-linux builds happy with external/f2fs-tool; system/extras/f2fs_utils
 ifeq ($(HOST_OS),linux)
@@ -123,6 +129,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     ro.audio.monitorOrientation=true \
     vendor.hwc.compose_policy=6 \
+    persist.vendor.rk_vulkan=true \
     sf.power.control=2073600 \
     ro.tether.denied=false \
     sys.resolution.changed=false \
@@ -131,7 +138,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.vendor.nrdp.modelgroup=NEXUSPLAYERFUGU \
     vendor.hwc.device.primary=HDMI-A,TV \
-    ro.vendor.sdkversion=RK3328_ANDROID11.0_BOX_V1.0.0
+    ro.vendor.sdkversion=RK3328_ANDROID10.0_BOX_V1.0.1 \
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
