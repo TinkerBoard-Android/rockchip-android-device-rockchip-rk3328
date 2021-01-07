@@ -35,6 +35,8 @@ CURRENT_SDK_VERSION := RK3328_ANDROID11.0_BOX_V1.0
 
 BOARD_WITH_SPECIAL_PARTITIONS := baseparameter:1M,logo:16M
 
+BOARD_BOOT_HEADER_VERSION := 1
+
 # Enable Dex compile opt as default
 WITH_DEXPREOPT := true
 
@@ -105,6 +107,8 @@ ALLOW_MISSING_DEPENDENCIES=true
 #Config omx to support codec type.
 BOARD_SUPPORT_VP9 := true
 BOARD_SUPPORT_VP6 := false
+
+TARGET_RK_GRALLOC_VERSION := 1
 
 # memtrack support
 BOARD_MEMTRACK_SUPPORT := true

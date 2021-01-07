@@ -31,12 +31,12 @@
     <feature name="android.software.voice_recognizers" />
     <feature name="android.software.leanback_only" />
     <feature name="android.software.cant_save_state" />
+    <feature name="android.hardware.type.television" />
     <!--
     <feature name="android.software.leanback" />
     <feature name="android.software.live_tv" />
     <feature name="android.software.picture_in_picture" />
     <feature name="com.google.android.tv.installed" />
-    <feature name="android.hardware.type.television" />
     <feature name="android.software.activities_on_secondary_displays" />
     -->
 </permissions>
