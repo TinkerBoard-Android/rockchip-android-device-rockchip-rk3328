@@ -18,4 +18,4 @@ ${_block_prefix}product /product  ext4 ro,barrier=1 ${_flags},first_stage_mount
 /devices/platform/ff500000.dwmmc/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/platform/ff510000.dwmmc/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 #  Full disk encryption has less effect on rk3328, so default to enable this.
-/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier latemount,wait,check,fileencryption=software,quota,formattable,reservedsize=128M,checkpoint=fs
+/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065 latemount,wait,check,fileencryption=software,quota,formattable,reservedsize=128M,checkpoint=fs
