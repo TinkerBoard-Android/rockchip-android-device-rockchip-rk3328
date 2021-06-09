@@ -73,6 +73,6 @@ PRODUCT_PACKAGES += \
     android.hardware.tv.input@1.0-impl
 
 # Display
-TARGET_BASE_PARAMETER_IMAGE := device/rockchip/common/baseparameter/baseparameter_fb1080.img
+TARGET_BASE_PARAMETER_IMAGE := device/rockchip/common/baseparameter/baseparameter.img
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320

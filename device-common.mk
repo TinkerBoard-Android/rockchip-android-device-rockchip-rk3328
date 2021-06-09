@@ -138,7 +138,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.vendor.nrdp.modelgroup=NEXUSPLAYERFUGU \
     vendor.hwc.device.primary=HDMI-A,TV \
-    ro.vendor.sdkversion=RK3328_ANDROID10.0_BOX_V1.0.3 \
+    ro.vendor.sdkversion=RK3328_ANDROID10.0_BOX_V1.0.6 \
     vendor.gralloc.no_afbc_for_fb_target_layer=1
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
