@@ -121,3 +121,5 @@ BOARD_MEMTRACK_SUPPORT := true
 #only box and atv using our audio policy(write by rockchip)
 USE_CUSTOM_AUDIO_POLICY := 1
 
+TARGET_ROCKCHIP_PCBATEST := false
+
