@@ -31,11 +31,13 @@ BOARD_SELINUX_ENFORCING := false
 # lines, aosp and rk3328, hence its name.
 
 include device/rockchip/common/build/rockchip/DynamicPartitions.mk
-include device/rockchip/common/BoardConfig.mk
 include device/rockchip/rk3328/rk3328_box/BoardConfig.mk
+include device/rockchip/common/BoardConfig.mk
 $(call inherit-product, device/rockchip/rk3328/device-common.mk)
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/rockchip/common/device.mk)
+
+PRODUCT_FSTAB_TEMPLATE := device/rockchip/rk3328/fstab_box.in
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/../overlay
 #TODO TV?
@@ -53,6 +55,8 @@ PRODUCT_MANUFACTURER := Rockchip
 
 # Disable bluetooth because of continuous driver crashes
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += config.disable_bluetooth=true
+
+BOARD_WITH_SPECIAL_PARTITIONS := baseparameter:1M,logo:16M
 
 # tmp compile needed
 BOARD_WITH_RKTOOLBOX := false

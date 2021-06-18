@@ -40,6 +40,11 @@ BOARD_BOOT_HEADER_VERSION := 1
 # Enable Dex compile opt as default
 WITH_DEXPREOPT := true
 
+PRODUCT_UBOOT_CONFIG ?= rk3328
+PRODUCT_KERNEL_ARCH ?= arm64
+PRODUCT_KERNEL_DTS ?= rk3328-box-liantong-avb
+PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig
+
 TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
 BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm64/boot/dts/rockchip
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
