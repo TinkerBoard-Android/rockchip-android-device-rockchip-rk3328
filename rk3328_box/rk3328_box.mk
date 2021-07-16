@@ -77,6 +77,10 @@ PRODUCT_PACKAGES += \
     android.hardware.tv.input@1.0-impl
 
 # Display
-TARGET_BASE_PARAMETER_IMAGE := device/rockchip/common/baseparameter/baseparameter.img
+TARGET_BASE_PARAMETER_IMAGE := device/rockchip/rk3328/baseparameter_fb720.img
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=160
+    ro.sf.lcd_density=160 \
+    persist.vendor.framebuffer.main=1280x720@60 \
+    ro.vendor.sdkversion=RK3328_ANDROID11.0_BOX_V1.0.6
+
+#end
