@@ -29,9 +29,11 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
+PRODUCT_KERNEL_VERSION := 4.19
+
 BOARD_AVB_ENABLE := false
 
-CURRENT_SDK_VERSION := RK3328_ANDROID11.0_BOX_V1.0
+CURRENT_SDK_VERSION := RK3328_ANDROID12.0_BOX_V1.0
 
 BOARD_WITH_SPECIAL_PARTITIONS := baseparameter:1M,logo:16M
 
@@ -45,8 +47,8 @@ PRODUCT_KERNEL_ARCH ?= arm64
 PRODUCT_KERNEL_DTS ?= rk3328-box-liantong-avb
 PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig
 
-TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
-BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm64/boot/dts/rockchip
+#TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
+#BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm64/boot/dts/rockchip
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
 BUILD_EMULATOR := false
 TARGET_BOARD_PLATFORM := rk3328

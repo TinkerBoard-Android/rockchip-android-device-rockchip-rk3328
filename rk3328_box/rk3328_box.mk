@@ -16,8 +16,8 @@
 
 TARGET_BOARD_PLATFORM_PRODUCT := box
 
-# First lunching is R, api_level is 30
-PRODUCT_SHIPPING_API_LEVEL := 30
+# First lunching is S, api_level is 31
+PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_DTBO_TEMPLATE := $(LOCAL_PATH)/dt-overlay.in
 PRODUCT_BOOT_DEVICE := ff520000.dwmmc
 BOARD_SELINUX_ENFORCING := false
@@ -48,6 +48,8 @@ PRODUCT_DEVICE := rk3328_box
 PRODUCT_BRAND := Rockchip
 PRODUCT_MODEL := rk3328_box
 PRODUCT_MANUFACTURER := Rockchip
+# Display
+TARGET_BASE_PARAMETER_IMAGE := device/rockchip/rk3328/rk3328_box/etc/baseparameter_auto.img
 
 
 #Need to build system as root for the device upgrading to Q.
@@ -65,22 +67,50 @@ BOARD_WITH_RKTOOLBOX := false
 PRODUCT_USE_PREBUILT_GTVS := no
 BUILD_WITH_GOOGLE_FRP := false
 
+BOARD_WITH_SPECIAL_PARTITIONS := baseparameter:1M,logo:16M
 # Get the long list of APNs
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
+PRODUCT_PACKAGES += \
+    libcrypto_vendor.vendor \
+#PRODUCT_PACKAGES += \
+    android.hardware.memtrack@1.0-service \
+    android.hardware.memtrack@1.0-impl \
+    memtrack.$(TARGET_BOARD_PLATFORM)
+
+# GTVS add the Client ID (provided by Google)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase=android-rockchip-tv
+
+# copy input keylayout and device config
+keylayout_files := $(shell ls device/rockchip/rk3588/rk3588_box/remote_config )
+PRODUCT_COPY_FILES += \
+        $(foreach file, $(keylayout_files), device/rockchip/rk3588/rk3588_box/remote_config/$(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(file))
+
+# Vendor seccomp policy files for media components:
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+
+BOARD_HS_ETHERNET := true
+
+# use box external_camera_config.xml
+PRODUCT_USB_CAMERA_CONFIG := $(LOCAL_PATH)/etc/external_camera_config.xml
 
 # TV Input HAL
 PRODUCT_PACKAGES += \
     android.hardware.tv.input@1.0-impl
 
 # Display
-TARGET_BASE_PARAMETER_IMAGE := device/rockchip/rk3328/baseparameter.img
+#TARGET_BASE_PARAMETER_IMAGE := device/rockchip/rk3328/baseparameter.img
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=160 \
     persist.vendor.framebuffer.main=1280x720@60 \
-    ro.vendor.sdkversion=RK3328_ANDROID11.0_BOX_V1.0.6
+    ro.vendor.sdkversion=RK3328_ANDROID12.0_BOX_V1.0.6
 
 #end

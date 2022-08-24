@@ -15,13 +15,10 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/rk3328_atv/rk3328_atv.mk \
     $(LOCAL_DIR)/rk3328_box/rk3328_box.mk \
     $(LOCAL_DIR)/rk3328_box_32/rk3328_box_32.mk \
 
 COMMON_LUNCH_CHOICES := \
-    rk3328_atv-userdebug \
-    rk3328_atv-user \
     rk3328_box-userdebug \
     rk3328_box-user \
     rk3328_box_32-userdebug \

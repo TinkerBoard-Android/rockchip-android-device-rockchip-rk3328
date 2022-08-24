@@ -17,7 +17,7 @@ include device/rockchip/rk3328/BoardConfig.mk
 BUILD_WITH_GO_OPT := false
 PRODUCT_UBOOT_CONFIG ?= rk3328
 PRODUCT_KERNEL_ARCH ?= arm64
-PRODUCT_KERNEL_DTS := rk3328-box-liantong-avb
+PRODUCT_KERNEL_DTS := rk3328-evb-android-avb
 PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig
 
 # AB image definition
@@ -25,5 +25,5 @@ BOARD_USES_AB_IMAGE := false
 
 ifeq ($(strip $(BOARD_USES_AB_IMAGE)), true)
     include device/rockchip/common/BoardConfig_AB.mk
-    TARGET_RECOVERY_FSTAB := device/rockchip/rk3326/rk3326_r/recovery.fstab_AB
+    TARGET_RECOVERY_FSTAB := device/rockchip/rk3328/rk3328_box/recovery.fstab_AB
 endif

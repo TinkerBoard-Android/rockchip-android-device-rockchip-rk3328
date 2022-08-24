@@ -43,7 +43,7 @@ PRODUCT_PACKAGES += \
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 #box fstab in template
-PRODUCT_FSTAB_TEMPLATE := device/rockchip/rk3328/fstab.in
+#PRODUCT_FSTAB_TEMPLATE := device/rockchip/rk3328/fstab.in
 
 #sdmmc device config
 PRODUCT_SDMMC_DEVICE := ff500000.dwmmc
@@ -103,12 +103,6 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 
 $(call inherit-product-if-exists, vendor/rockchip/rk3328/device-vendor.mk)
 
-#for enable optee support
-ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
-
-PRODUCT_COPY_FILES += \
-       device/rockchip/common/init.optee_verify.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.optee.rc
-endif
 
 #tv_core_hardware_3328
 ifeq ($(strip $(TARGET_PRODUCT)),rk3328_atv)
@@ -138,7 +132,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.vendor.nrdp.modelgroup=NEXUSPLAYERFUGU \
     vendor.hwc.device.primary=HDMI-A,TV \
-    ro.vendor.sdkversion=RK3328_ANDROID10.0_BOX_V1.0.6 \
+    ro.vendor.sdkversion=RK3328_ANDROID12.0_BOX_V1.0.6 \
     vendor.gralloc.no_afbc_for_fb_target_layer=1
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
